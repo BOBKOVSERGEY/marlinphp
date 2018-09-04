@@ -1,3 +1,22 @@
+<?php
+require __DIR__ . '/config.php';
+
+// формируем запрос
+$sql = "SELECT * FROM tasks WHERE id = :id";
+
+// подготавливаем запрос
+$statement = $pdo->prepare($sql);
+
+// передаем параметризованнные параметры
+$statement->bindParam(":id", $_GET['id']);
+
+// выполняем запрос
+$statement->execute();
+
+// записываем релультат
+$task = $statement->fetch(PDO::FETCH_ASSOC);
+
+?>
 <!doctype html>
 <html lang="ru">
 <head>
@@ -11,12 +30,12 @@
 <body>
 <div class="container">
   <h1>
-    Go to the store
+    <?php echo $task['title'];?>
   </h1>
   <div class="mt-2 mb-2">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium amet aspernatur dolor id ipsum, magni officiis optio possimus rem! Assumenda dolorum eligendi explicabo optio quis quisquam sapiente voluptate voluptates.
+    <?php echo $task['description'];?>
   </div>
-  <a href="#">Go Back</a>
+  <a href="/note/">Go Back</a>
 </div>
 </body>
 </html>

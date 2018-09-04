@@ -1,10 +1,13 @@
 <?php
 require __DIR__ . '/config.php';
 
-// Подготавливаем запрос
-$statement = $pdo->prepare("SELECT * FROM tasks");
+// формируем запрос
+$sql = "SELECT * FROM tasks";
 
-// выполняем запрос
+// Подготавливаем запрос
+$statement = $pdo->prepare($sql);
+
+// выполняем запрос возвращает true или false
 $statement->execute();
 
 $tasks = $statement->fetchAll(PDO::FETCH_ASSOC); // или передать 2
@@ -25,7 +28,7 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC); // или передать 2
     <h1>
       All Tasks
     </h1>
-    <a href="#" class="btn btn-success">Add Task</a>
+    <a href="create.php" class="btn btn-success">Add Task</a>
     <table class="table mt-5 mb-5">
       <thead>
       <tr>
@@ -40,8 +43,9 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC); // или передать 2
         <td><?php echo $task['id']; ?></td>
         <td><?php echo $task['title']; ?></td>
         <td>
-          <a href="#" class="btn btn-warning">Edit</a>
-          <a href="#" class="btn btn-danger">Delete</a>
+          <a href="show.php?id=<?php echo $task['id']; ?>" class="btn btn-info">Read</a>
+          <a href="edit.php?id=<?php echo $task['id']; ?>" class="btn btn-warning">Edit</a>
+          <a onclick="return confirm('are you sure?')" href="delete.php?id=<?php echo $task['id']; ?>" class="btn btn-danger">Delete</a>
         </td>
       </tr>
       <?php }?>

@@ -13,12 +13,12 @@
     <h1>
       Create Task
     </h1>
-    <form action="">
+    <form action="store.php" method="post">
       <div class="form-group">
-        <input type="text" name="" class="form-control">
+        <input type="text" name="title" class="form-control" placeholder="Введите название">
       </div>
       <div class="form-group">
-        <textarea name="" class="form-control"></textarea>
+        <textarea name="content" class="form-control" placeholder="Введите описание"></textarea>
       </div>
       <div class="form-group">
         <button class="btn btn-success" type="submit">Submit</button>
