@@ -16,3 +16,6 @@ $statement->execute();
 
 // перенаправляем
 header('Location: /note/');
+
+
+// удаление задачи

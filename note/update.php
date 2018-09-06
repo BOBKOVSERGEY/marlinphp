@@ -15,3 +15,5 @@ $statement->execute($_POST);
 // перенаправляем на главную
 header("Location: /note/");
 exit;
+
+// изменение или обновление задачи

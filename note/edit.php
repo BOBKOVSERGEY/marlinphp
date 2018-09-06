@@ -15,6 +15,8 @@ $statement->execute();
 // записываем релультат
 $task = $statement->fetch(PDO::FETCH_ASSOC);
 
+// вывод одной задачи
+
 ?>
 <!doctype html>
 <html lang="ru">

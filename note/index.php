@@ -12,6 +12,13 @@ $statement->execute();
 
 $tasks = $statement->fetchAll(PDO::FETCH_ASSOC); // или передать 2
 
+// вывод списка задач
+
+function getAllTasks()
+{
+
+}
+
 ?>
 <!doctype html>
 <html lang="ru">
