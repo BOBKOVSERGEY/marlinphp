@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5168d403-9615-4a2c-9e59-fb581f2b6180" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/note/classes/QueryBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/note/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/note/delete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/note/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/note/edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/note/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/note/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/note/show.php" beforeDir="false" afterPath="$PROJECT_DIR$/note/show.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/note/store.php" beforeDir="false" afterPath="$PROJECT_DIR$/note/store.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/note/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/note/update.php" afterDir="false" />
-    </list>
+    <list default="true" id="5168d403-9615-4a2c-9e59-fb581f2b6180" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,18 +258,17 @@
       <workItem from="1536132412602" duration="120000" />
       <workItem from="1536244350894" duration="979000" />
       <workItem from="1536310067701" duration="601000" />
-      <workItem from="1536666392673" duration="5159000" />
+      <workItem from="1536666392673" duration="5870000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19409000" />
+    <option name="totallyTimeSpent" value="20120000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1006" y="12" width="1046" height="864" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20486815" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20486815" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -291,7 +281,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32768363" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32768363" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
