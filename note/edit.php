@@ -1,21 +1,13 @@
 <?php
 require __DIR__ . '/config.php';
-// формируем запрос
-$sql = "SELECT * FROM tasks WHERE id = :id";
 
-// подготавливаем запрос
-$statement = $pdo->prepare($sql);
+require __DIR__ . '/classes/QueryBuilder.php';
 
-// передаем параметризованнные параметры
-$statement->bindParam(":id", $_GET['id']);
+$id = $_GET['id'];
 
-// выполняем запрос
-$statement->execute();
+$db = new QueryBuilder();
 
-// записываем релультат
-$task = $statement->fetch(PDO::FETCH_ASSOC);
-
-// вывод одной задачи
+$task = $db->getTask($id);
 
 ?>
 <!doctype html>

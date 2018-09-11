@@ -1,19 +1,11 @@
 <?php
 require __DIR__ . '/config.php';
 
-// формируем запрос
-$sql = "UPDATE tasks SET title=:title, description=:description WHERE id=:id";
+require __DIR__ . '/classes/QueryBuilder.php';
 
-// подготавливаем запрос
-$statement = $pdo->prepare($sql);
-
-
-// выполняем запрос
-$statement->execute($_POST);
-
-
-// перенаправляем на главную
-header("Location: /note/");
-exit;
+$data = $_POST;
+$db = new QueryBuilder();
 
 // изменение или обновление задачи
+
+$db->updateTask($data);

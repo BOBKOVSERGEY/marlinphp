@@ -1,21 +1,14 @@
 <?php
 require __DIR__ . '/config.php';
 
+require __DIR__ . '/classes/QueryBuilder.php';
+
 $id = $_GET['id'];
-// формируем запрос
-$sql = "DELETE FROM tasks WHERE id = :id";
 
-// подготавливаем запрос
-$statement = $pdo->prepare($sql);
-
-// передаем параметры
-$statement->bindParam(":id", $id);
-
-// выполняем запрос
-$statement->execute();
-
-// перенаправляем
-header('Location: /note/');
+$db = new QueryBuilder();
 
 
 // удаление задачи
+
+$db->deleteTask($id);
+

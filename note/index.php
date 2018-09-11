@@ -1,23 +1,11 @@
 <?php
 require __DIR__ . '/config.php';
+require __DIR__ . '/classes/QueryBuilder.php';
 
-// формируем запрос
-$sql = "SELECT * FROM tasks";
 
-// Подготавливаем запрос
-$statement = $pdo->prepare($sql);
+$db = new QueryBuilder();
+$tasks = $db->getAllTasks();
 
-// выполняем запрос возвращает true или false
-$statement->execute();
-
-$tasks = $statement->fetchAll(PDO::FETCH_ASSOC); // или передать 2
-
-// вывод списка задач
-
-function getAllTasks()
-{
-
-}
 
 ?>
 <!doctype html>
