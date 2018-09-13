@@ -12,3 +12,5 @@ $db = new QueryBuilder();
 
 $db->deleteTask($id);
 
+header('Location: /note/');
+

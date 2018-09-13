@@ -8,12 +8,12 @@ class QueryBuilder
     global $pdo;
 
     // формируем запрос
-    $sql = "SELECT * FROM tasks";
+    $sql = "SELECT * FROM tasks ORDER BY id DESC";
 
-// Подготавливаем запрос
+    // Подготавливаем запрос
     $statement = $pdo->prepare($sql);
 
-// выполняем запрос возвращает true или false
+    // выполняем запрос возвращает true или false
     $statement->execute();
 
     $tasks = $statement->fetchAll(PDO::FETCH_ASSOC); // или передать 2
@@ -29,23 +29,19 @@ class QueryBuilder
     $title = $_POST['title'];
     $content = $_POST['content'];
 
-// формируем запрос для вставки
+    // формируем запрос для вставки
     $sql = "INSERT INTO tasks (title, description) VALUES(:title, :content)";
 
-// подготавливаем запрос
+    // подготавливаем запрос
     $statement = $pdo->prepare($sql);
 
-// связываем метку со значением
+    // связываем метку со значением
 
-//$statement->bindParam(":title", $title, PDO::PARAM_STR);
-//$statement->bindParam(":content", $content, PDO::PARAM_STR);
+    //$statement->bindParam(":title", $title, PDO::PARAM_STR);
+    //$statement->bindParam(":content", $content, PDO::PARAM_STR);
 
-// выполняем запрос
+    // выполняем запрос
     $result = $statement->execute($data);
-
-// перенаправляем пользователя на главную страницу
-    header("Location: /note/");
-    exit;
 
   }
 
@@ -96,19 +92,17 @@ class QueryBuilder
   public function deleteTask($id)
   {
     global $pdo;
-// формируем запрос
+    // формируем запрос
     $sql = "DELETE FROM tasks WHERE id = :id";
 
-// подготавливаем запрос
+    // подготавливаем запрос
     $statement = $pdo->prepare($sql);
 
-// передаем параметры
+    // передаем параметры
     $statement->bindParam(":id", $id);
 
-// выполняем запрос
+    // выполняем запрос
     $statement->execute();
 
-// перенаправляем
-    header('Location: /note/');
   }
 }
