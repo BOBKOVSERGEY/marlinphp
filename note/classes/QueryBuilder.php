@@ -2,16 +2,22 @@
 
 class QueryBuilder
 {
+
+  public $pdo;
+
+  public function __construct()
+  {
+    $this->pdo = new PDO("mysql:host=localhost; dbname=note", "root", "");
+  }
+
   // все задачи
   public function getAllTasks()
   {
-    global $pdo;
-
     // формируем запрос
     $sql = "SELECT * FROM tasks ORDER BY id DESC";
 
     // Подготавливаем запрос
-    $statement = $pdo->prepare($sql);
+    $statement = $this->pdo->prepare($sql);
 
     // выполняем запрос возвращает true или false
     $statement->execute();
@@ -25,7 +31,6 @@ class QueryBuilder
   // добавляем задачу
   public function addTask($data)
   {
-    global $pdo;
     $title = $_POST['title'];
     $content = $_POST['content'];
 
@@ -33,7 +38,7 @@ class QueryBuilder
     $sql = "INSERT INTO tasks (title, description) VALUES(:title, :content)";
 
     // подготавливаем запрос
-    $statement = $pdo->prepare($sql);
+    $statement = $this->pdo->prepare($sql);
 
     // связываем метку со значением
 
@@ -48,12 +53,11 @@ class QueryBuilder
   // вывод одной задачи
   public function getTask($id)
   {
-    global $pdo;
     // формируем запрос
     $sql = "SELECT * FROM tasks WHERE id = :id";
 
 // подготавливаем запрос
-    $statement = $pdo->prepare($sql);
+    $statement = $this->pdo->prepare($sql);
 
 // передаем параметризованнные параметры
     $statement->bindParam(":id", $id);
@@ -70,13 +74,12 @@ class QueryBuilder
   // обновление задачи
   public function updateTask($data)
   {
-    global $pdo;
 
     // формируем запрос
     $sql = "UPDATE tasks SET title=:title, description=:description WHERE id=:id";
 
 // подготавливаем запрос
-    $statement = $pdo->prepare($sql);
+    $statement = $this->pdo->prepare($sql);
 
 
 // выполняем запрос
@@ -91,12 +94,11 @@ class QueryBuilder
   // удаление задач
   public function deleteTask($id)
   {
-    global $pdo;
     // формируем запрос
     $sql = "DELETE FROM tasks WHERE id = :id";
 
     // подготавливаем запрос
-    $statement = $pdo->prepare($sql);
+    $statement = $this->pdo->prepare($sql);
 
     // передаем параметры
     $statement->bindParam(":id", $id);

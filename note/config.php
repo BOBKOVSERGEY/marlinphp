@@ -2,9 +2,6 @@
 
 error_reporting(-1);
 
-// 1 Connect
-$pdo = new PDO("mysql:host=localhost; dbname=note", "root", "");
-
 
 
 // DEBUG
