@@ -6,7 +6,12 @@ require __DIR__ . '/classes/QueryBuilder.php';
 
 $db = new QueryBuilder();
 
-$db->addTask($_POST);
+$data = [
+  'title' => $_POST['title'],
+  'description' => $_POST['content'],
+];
+
+$db->add('tasks', $data);
 header("Location: /note/");
 exit;
 

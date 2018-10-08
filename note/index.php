@@ -4,7 +4,7 @@ require __DIR__ . '/classes/QueryBuilder.php';
 
 
 $db = new QueryBuilder();
-$tasks = $db->getAllTasks();
+$tasks = $db->findAll('tasks');
 
 
 ?>

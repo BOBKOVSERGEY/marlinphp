@@ -11,10 +11,10 @@ class QueryBuilder
   }
 
   // все задачи
-  public function getAllTasks()
+  public function findAll($table)
   {
     // формируем запрос
-    $sql = "SELECT * FROM tasks ORDER BY id DESC";
+    $sql = "SELECT * FROM $table ORDER BY id DESC";
 
     // Подготавливаем запрос
     $statement = $this->pdo->prepare($sql);
@@ -22,20 +22,26 @@ class QueryBuilder
     // выполняем запрос возвращает true или false
     $statement->execute();
 
-    $tasks = $statement->fetchAll(PDO::FETCH_ASSOC); // или передать 2
+    $results = $statement->fetchAll(PDO::FETCH_ASSOC); // или передать 2
 
-    return $tasks;
+    return $results;
 
   }
 
   // добавляем задачу
-  public function addTask($data)
+  public function add($table, $data)
   {
-    $title = $_POST['title'];
-    $content = $_POST['content'];
+
+
+
+    $keys = array_keys($data);
+    $stringOfKeys = implode(',', $keys);
+
+    $placeholders = ":" . implode(',:', $keys);
 
     // формируем запрос для вставки
-    $sql = "INSERT INTO tasks (title, description) VALUES(:title, :content)";
+    $sql = "INSERT INTO $table ($stringOfKeys) VALUES($placeholders)";
+
 
     // подготавливаем запрос
     $statement = $this->pdo->prepare($sql);
@@ -51,10 +57,10 @@ class QueryBuilder
   }
 
   // вывод одной задачи
-  public function getTask($id)
+  public function findOne($table,$id)
   {
     // формируем запрос
-    $sql = "SELECT * FROM tasks WHERE id = :id";
+    $sql = "SELECT * FROM $table WHERE id = :id";
 
 // подготавливаем запрос
     $statement = $this->pdo->prepare($sql);
@@ -66,9 +72,9 @@ class QueryBuilder
     $statement->execute();
 
 // записываем релультат
-    $task = $statement->fetch(PDO::FETCH_ASSOC);
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-    return $task;
+    return $result;
   }
 
   // обновление задачи
@@ -92,10 +98,10 @@ class QueryBuilder
   }
 
   // удаление задач
-  public function deleteTask($id)
+  public function delete($table, $id)
   {
     // формируем запрос
-    $sql = "DELETE FROM tasks WHERE id = :id";
+    $sql = "DELETE FROM $table WHERE id = :id";
 
     // подготавливаем запрос
     $statement = $this->pdo->prepare($sql);

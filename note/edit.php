@@ -7,7 +7,7 @@ $id = $_GET['id'];
 
 $db = new QueryBuilder();
 
-$task = $db->getTask($id);
+$task = $db->findOne('tasks', $id);
 
 ?>
 <!doctype html>

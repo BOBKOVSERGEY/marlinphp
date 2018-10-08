@@ -10,7 +10,7 @@ $db = new QueryBuilder();
 
 // удаление задачи
 
-$db->deleteTask($id);
+$db->delete('tasks', $id);
 
 header('Location: /note/');
 
