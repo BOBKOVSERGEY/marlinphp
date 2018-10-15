@@ -27,8 +27,8 @@ $task = $db->findOne('tasks', $id);
     </h1>
     <form action="update.php" method="post">
       <div class="form-group">
-        <input type="text" name="title" class="form-control" value="<?php echo $task['title'];?>">
         <input type="hidden" name="id" value="<?php echo $task['id'];?>">
+        <input type="text" name="title" class="form-control" value="<?php echo $task['title'];?>">
       </div>
       <div class="form-group">
         <textarea name="description" class="form-control"><?php echo $task['description'];?></textarea>

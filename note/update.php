@@ -8,4 +8,4 @@ $db = new QueryBuilder();
 
 // изменение или обновление задачи
 
-$db->updateTask($data);
+$db->update('tasks', $data);
