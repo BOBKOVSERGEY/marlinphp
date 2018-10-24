@@ -1,10 +1,30 @@
 <?php
 require __DIR__ . '/config.php';
 require __DIR__ . '/classes/QueryBuilder.php';
+require __DIR__ . '/classes/Auth.php';
 
 
 $db = new QueryBuilder();
 $tasks = $db->findAll('tasks');
+
+$auth = new Auth($db);
+
+//$auth->register('sergey_bobkov2@inbox.ru','123456');
+
+debugPrintR($_SESSION);
+
+debugVarDump($auth->login('sergey_bobkov2@inbox.ru', '123456'));
+
+//$auth->logout();
+
+debugVarDump($auth->check());
+
+debugPrintR($auth->currentUser());
+$user = $auth->currentUser();
+
+debugPrintR($user);
+echo $user->email;
+
 
 
 ?>

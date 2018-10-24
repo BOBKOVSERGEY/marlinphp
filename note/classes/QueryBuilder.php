@@ -81,16 +81,16 @@ class QueryBuilder
   public function update($table,$data)
   {
     $fields = '';
-    debugPrintR($data);
+
     foreach ($data as $key => $value) {
       $fields .= $key . "=:" .$key . ",";
     }
-    debugPrintR($fields);
+
     $fields = rtrim($fields, ',');
-    debugPrintR($fields);
-    die;
+
     // формируем запрос
-    $sql = "UPDATE $table SET title=:title, description=:description WHERE id=:id";
+    $sql = "UPDATE $table SET $fields WHERE id=:id";
+
 
 // подготавливаем запрос
     $statement = $this->pdo->prepare($sql);
