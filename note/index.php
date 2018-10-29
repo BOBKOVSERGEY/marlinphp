@@ -10,7 +10,7 @@ $tasks = $db->findAll('tasks');
 $auth = new Auth($db);
 
 //$auth->register('sergey_bobkov2@inbox.ru','123456');
-
+debugPrintR($_SERVER);
 debugPrintR($_SESSION);
 
 debugVarDump($auth->login('sergey_bobkov2@inbox.ru', '123456'));
