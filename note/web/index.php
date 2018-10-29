@@ -1,11 +1,21 @@
 <?php
+require __DIR__ . '/../config.php';
+require __DIR__ . '/../classes/QueryBuilder.php';
+require __DIR__ . '/../classes/Auth.php';
+
+
+$db = new QueryBuilder();
+$tasks = $db->findAll('tasks');
+
+$auth = new Auth($db);
+
 
 $url = $_SERVER['REQUEST_URI'];
 
-if ($url == '/about') {
-  echo 'Подключен файл about.php'; exit;
+if ($url == '/list') {
+
 } else if ($url == '/') {
-  echo 'Подключен файл index.php';exit;
+  require __DIR__ . '/../index.php'; exit;
 } else if($url == '/contact') {
   echo 'Подключен файл contacts.php';exit;
 } else {
