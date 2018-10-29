@@ -2,10 +2,13 @@
 
 $url = $_SERVER['REQUEST_URI'];
 
-if ($url == '/note/web/about') {
+if ($url == '/about') {
   echo 'Подключен файл about.php'; exit;
-} elseif ($url == '/note/web/contact') {
+} else if ($url == '/') {
+  echo 'Подключен файл index.php';exit;
+} else if($url == '/contact') {
   echo 'Подключен файл contacts.php';exit;
+} else {
+  echo "404 | NOT FOUND";
 }
 
-echo "404 | NOT FOUND";
