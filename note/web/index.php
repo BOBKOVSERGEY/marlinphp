@@ -5,15 +5,15 @@ require __DIR__ . '/../classes/Auth.php';
 
 
 $db = new QueryBuilder();
-$tasks = $db->findAll('tasks');
+
 
 $auth = new Auth($db);
 
 
 $url = $_SERVER['REQUEST_URI'];
-
+echo $url;
 if ($url == '/list') {
-
+  echo 'hello';
 } else if ($url == '/') {
   require __DIR__ . '/../index.php'; exit;
 } else if($url == '/contact') {
